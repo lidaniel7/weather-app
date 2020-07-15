@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Location from './Components/Location.js';
+import Form from './Components/Form.js';
 
 class App extends Component {
   constructor() {
@@ -12,8 +13,11 @@ class App extends Component {
       temp_max: "",
       humidity: "",
       condition: "",
+      newCity: "",
     }
     this.getWeather = this.getWeather.bind(this);
+    this.inputCity = this.inputCity.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   getWeather(city) {
@@ -36,6 +40,22 @@ class App extends Component {
       })
   }
 
+  handleChange(event) {
+    event.preventDefault();
+    this.setState({
+      newCity: event.target.value
+    })
+  }
+
+  inputCity(event) {
+    event.preventDefault();
+    this.setState({
+      city: this.state.newCity,
+    })
+    event.target.reset();
+    this.getWeather(this.state.city);
+  }
+
   componentDidMount() {
     this.getWeather(this.state.city);
   }
@@ -50,6 +70,7 @@ class App extends Component {
           humidity={this.state.humidity}
           condition={this.state.condition}
         />
+        <Form inputCity={this.inputCity} handleChange={this.handleChange}/>
       </div>
     );
   }
