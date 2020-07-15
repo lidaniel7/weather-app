@@ -10,8 +10,8 @@ class App extends Component {
       temperature: "",
       temp_min: "",
       temp_max: "",
-      // humidity: "",
-      // wind: "",
+      humidity: "",
+      condition: "",
     }
     this.getWeather = this.getWeather.bind(this);
   }
@@ -21,15 +21,17 @@ class App extends Component {
     const link = `http://api.openweathermap.org/data/2.5/weather?q=${city.toLowerCase()}&appid=${KEY}`
 
     fetch(link)
-      .then(function(response) {
+      .then((response) => {
         return response.json()
       })
-      .then(function(response) {
+      .then((response) => {
         const location = response;
         this.setState({
           temperature: location.main.temp,
           temp_min: location.main.temp_min,
           temp_max: location.main.temp_max,
+          humidity: location.main.humidity,
+          condition: location.weather[0].description,
         })
       })
   }
@@ -41,9 +43,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.temperature}
-        {this.state.temp_min}
-        {this.state.temp_max}
+        <Location 
+          temperature={this.state.temperature}
+          temp_min={this.state.temp_min}
+          temp_max={this.state.temp_max}
+          humidity={this.state.humidity}
+          condition={this.state.condition}
+        />
       </div>
     );
   }
