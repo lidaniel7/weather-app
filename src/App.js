@@ -23,7 +23,6 @@ class App extends Component {
   getWeather(city) {
     const KEY = "8a5ef08ed5c0d2cb0672425f4f244986"
     const link = `http://api.openweathermap.org/data/2.5/weather?q=${city.toLowerCase()}&appid=${KEY}`
-
     fetch(link)
       .then((response) => {
         return response.json()
@@ -38,6 +37,9 @@ class App extends Component {
           condition: location.weather[0].description,
         })
       })
+      .catch((error) => {
+        alert("You have entered an invalid city")
+      })
   }
 
   handleChange(event) {
@@ -45,6 +47,7 @@ class App extends Component {
     this.setState({
       newCity: event.target.value
     })
+    // console.log(this.state.newCity)
   }
 
   inputCity(event) {
@@ -52,8 +55,8 @@ class App extends Component {
     this.setState({
       city: this.state.newCity,
     })
+    this.getWeather(this.state.newCity);
     event.target.reset();
-    this.getWeather(this.state.city);
   }
 
   componentDidMount() {
@@ -61,6 +64,8 @@ class App extends Component {
   }
 
   render() {
+
+
     return (
       <div className="App">
         <Location 
