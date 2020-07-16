@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,87 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* @import url('https://fonts.googleapis.com/css?family=Merriweather:100,200,300,300i,400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400'); */
+
+.App {
+  font-family: 'Baloo 2', cursive;
+  text-align: center;
+  font-size: 68px;
+  font-weight: 300;
+  color: white;
+  margin-top: 150px;
+}
+
+.Title {
+  font-family: 'Baloo 2';
+  text-align: center;
+  font-size: 68px;
+  font-weight: 300;
+  color: white;
+  margin-top: 150px;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45px;
+  margin-bottom: 15%;
+  font-family: 'Baloo 2';
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  font-size: 40px;
+}
+
+/* .temperature {
+  font-family: 'Baloo 2', cursive;
+  text-align: center;
+  color: white;
+} */
+
+input[type="text"] {
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 1px #f16051;
+  width: 30%;
+  padding-bottom: 4px;
+  color: #fff !important;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+input[type="text"] { 
+    outline: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
+    -webkit-text-fill-color: #fff !important;
+}
+
+button {
+  border: 0;
+  padding: 8px 20px;
+  margin: 0 2px;
+  border-radius: 2px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #f16051;
+  color: #fff;
+  font-weight: 100;
+}
+
+button:active {
+  outline: none;
 }

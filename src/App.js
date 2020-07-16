@@ -22,7 +22,7 @@ class App extends Component {
 
   getWeather(city) {
     const KEY = "8a5ef08ed5c0d2cb0672425f4f244986"
-    const link = `http://api.openweathermap.org/data/2.5/weather?q=${city.toLowerCase()}&appid=${KEY}`
+    const link = `http://api.openweathermap.org/data/2.5/weather?q=${city.toLowerCase()}&appid=${KEY}&units=metric`
     fetch(link)
       .then((response) => {
         return response.json()
@@ -38,7 +38,7 @@ class App extends Component {
         })
       })
       .catch((error) => {
-        alert("You have entered an invalid city")
+        alert("You have entered an invalid city. Please try again.")
       })
   }
 
@@ -47,7 +47,6 @@ class App extends Component {
     this.setState({
       newCity: event.target.value
     })
-    // console.log(this.state.newCity)
   }
 
   inputCity(event) {
@@ -67,15 +66,18 @@ class App extends Component {
 
 
     return (
-      <div className="App">
-        <Location 
-          temperature={this.state.temperature}
-          temp_min={this.state.temp_min}
-          temp_max={this.state.temp_max}
-          humidity={this.state.humidity}
-          condition={this.state.condition}
+      <div>
+        <div className="App">
+          <h1 className="Title">How's the weather today?</h1>
+          <Form inputCity={this.inputCity} handleChange={this.handleChange}/>
+          <Location 
+            temperature={this.state.temperature}
+            temp_min={this.state.temp_min}
+            temp_max={this.state.temp_max}
+            humidity={this.state.humidity}
+            condition={this.state.condition}
         />
-        <Form inputCity={this.inputCity} handleChange={this.handleChange}/>
+      </div>
       </div>
     );
   }

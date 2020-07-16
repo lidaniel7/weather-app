@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Form.css';
 
 class Form extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class Form extends Component {
 
         return (
             <form onSubmit={inputCity}>
-                <input placeHolder="Enter a City" onChange={handleChange}/>
+                <input type="text" placeHolder="Enter a City" onChange={handleChange}/>
                 <button>Get Weather</button>
             </form>
         );

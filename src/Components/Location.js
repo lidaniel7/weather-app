@@ -7,11 +7,11 @@ class Location extends Component {
     render() {
         return (
             <div className="location">
-                <p>{this.props.temperature}</p>
-                <p>{this.props.temp_min}</p>
-                <p>{this.props.temp_max}</p>
-                <p>{this.props.humidity}</p>
-                <p>{this.props.condition}</p>
+                <p>{"Temperature: " + this.props.temperature + "°C" }</p>
+                {/* <p>{this.props.temp_min}</p>
+                <p>{this.props.temp_max}</p> */}
+                <p>{"Humidity: " + this.props.humidity + "%"}</p>
+                <p>{"Condition: " + this.props.condition}</p>
             </div>
         )
     }
