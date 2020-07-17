@@ -5,13 +5,16 @@ class Location extends Component {
         super(props)
     }
     render() {
+        let link = "http://openweathermap.org/img/wn/" + this.props.icon + "@4x.png"
         return (
             <div className="location">
-                <p>{"Temperature: " + this.props.temperature + "°C" }</p>
+                <h3>{this.props.city}</h3>
+                <img src={link} />
+                <p>{"Condition: " + this.props.condition}</p>
+                <p>{"Temperature: " + this.props.temperature + "°F" }</p>
                 {/* <p>{this.props.temp_min}</p>
                 <p>{this.props.temp_max}</p> */}
                 <p>{"Humidity: " + this.props.humidity + "%"}</p>
-                <p>{"Condition: " + this.props.condition}</p>
             </div>
         )
     }
